@@ -1,0 +1,34 @@
+version: '2'
+volumes:
+  mongodata:
+  postgresdata:
+
+services:
+  api:
+    image: banana/api
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/code
+  mongo:
+    image: mongo
+    volumes:
+      - mongodata:/data/db
+  ui:
+    build: ./ui
+    ports:
+      - "3000:3000"
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+
+  postgres:
+    image: postgres
+    volumes:
+      - postgresdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: patatoe
+      POSTGRES_USER: banana
+    ports:
+      - "5432:5432"

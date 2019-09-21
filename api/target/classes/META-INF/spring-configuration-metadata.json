@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "app",
+      "type": "banana.AppProperties",
+      "sourceType": "banana.AppProperties"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}
